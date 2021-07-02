@@ -15,9 +15,16 @@ namespace CinemaTickets.Models
         {
 
         }
-        public Genre(string title,string description)
+        public Genre(string title,string description,Guid? id =null)
         {
-            this.Id = Guid.NewGuid();
+            if (id == null)
+            {
+                this.Id = Guid.NewGuid();
+            }
+            else
+            {
+                this.Id = id.Value;
+            }
             this.Title = title;
             this.Description = description;
         }

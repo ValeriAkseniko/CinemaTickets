@@ -15,9 +15,16 @@ namespace CinemaTickets.Models
         {
 
         }
-        public Place(int number,int capacity)
+        public Place(int number,int capacity,Guid? id=null)
         {
-            this.Id = Guid.NewGuid();
+            if (id == null)
+            {
+                this.Id = Guid.NewGuid();
+            }
+            else
+            {
+                this.Id = id.Value;
+            }
             this.Number = number;
             this.Capacity = capacity;
         }

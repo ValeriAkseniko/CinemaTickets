@@ -52,6 +52,7 @@
     <Compile Include="Models\Row.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\TypeOfCalculation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

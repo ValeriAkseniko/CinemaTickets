@@ -10,16 +10,23 @@ namespace CinemaTickets.Models
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public Row CountRows { get; set; }
+        public List<Row> Rows { get; set; }
         public Hall()
         {
-
+            this.Rows = new List<Row>();
         }
-        public Hall(string titel,Row countRows)
+        public Hall(string titel,List<Row> Rows,Guid? id =null)
         {
-            this.Id = Guid.NewGuid();
+            if (id == null)
+            {
+                this.Id = Guid.NewGuid();
+            }
+            else
+            {
+                this.Id = id.Value;
+            }
             this.Title = titel;
-            this.CountRows = countRows;
+            this.Rows = Rows;
         }
     }
 }

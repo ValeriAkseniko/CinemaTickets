@@ -10,22 +10,29 @@ namespace CinemaTickets.Models
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public double Duration { get; set; }
+        public int Duration { get; set; }
         public string Description { get; set; }
-        public AgeRestrictions ageRestrictions { get; set; }
-        public Genre genre { get; set; }
+        public AgeRestrictions AgeRestrictions { get; set; }
+        public Genre Genre { get; set; }
         public Film()
         {
 
         }
-        public Film(string title,double duration,string description,AgeRestrictions ageRestrictions,Genre genre)
+        public Film(string title,int duration,string description,AgeRestrictions ageRestrictions,Genre genre,Guid? id = null)
         {
-            this.Id = Guid.NewGuid();
+            if (id == null)
+            {
+                this.Id = Guid.NewGuid();
+            }
+            else
+            {
+                this.Id = id.Value;
+            }
             this.Title = title;
             this.Duration = duration;
             this.Description = description;
-            this.ageRestrictions = ageRestrictions;
-            this.genre = genre;
+            this.AgeRestrictions = ageRestrictions;
+            this.Genre = genre;
         }
     }
 }

@@ -9,15 +9,22 @@ namespace CinemaTickets.Models
     class Status
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
         public Status()
         {
 
         }
-        public Status(string title)
+        public Status(string name,Guid? id=null)
         {
-            this.Id = Guid.NewGuid();
-            this.Title = title;
+            if (id == null)
+            {
+                this.Id = Guid.NewGuid();
+            }
+            else
+            {
+                this.Id = id.Value;
+            }
+            this.Name = name;
         }
     }
 }
