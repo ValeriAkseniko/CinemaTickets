@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaTickets.Models
 {
-    class Status
+    public class Status
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

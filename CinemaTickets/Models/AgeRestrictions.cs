@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaTickets.Models
 {
-    class AgeRestrictions
+    public class AgeRestrictions
     {
         public Guid Id { get; set; }
         public int MinAge { get; set; }
@@ -16,9 +16,9 @@ namespace CinemaTickets.Models
         {
 
         }
-        public AgeRestrictions(int minAge,string title,string description,Guid? id = null)
+        public AgeRestrictions(int minAge, string title, string description, Guid? id = null)
         {
-            if (id==null)
+            if (id == null)
             {
                 this.Id = Guid.NewGuid();
             }
@@ -30,5 +30,6 @@ namespace CinemaTickets.Models
             this.Title = title;
             this.Description = description;
         }
+        
     }
 }

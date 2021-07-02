@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaTickets.Models
 {
-    enum TypeOfCalculation
+    public enum TypeOfCalculation
     {
         Cash = 1,
         Card = 2,
