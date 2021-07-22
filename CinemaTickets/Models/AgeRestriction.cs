@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace CinemaTickets.Models
 {
-    public class AgeRestrictions
+    public class AgeRestriction
     {
         public Guid Id { get; set; }
         public int MinAge { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public AgeRestrictions()
+        public AgeRestriction()
         {
 
         }
-        public AgeRestrictions(int minAge, string title, string description, Guid? id = null)
+        public AgeRestriction(int minAge, string title, string description, Guid? id = null)
         {
             if (id == null)
             {

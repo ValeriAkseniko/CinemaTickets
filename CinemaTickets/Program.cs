@@ -11,7 +11,7 @@ namespace CinemaTickets
     {
         static void Main(string[] args)
         {
-            AgeRestrictions age = new AgeRestrictions
+            AgeRestriction age = new AgeRestriction
             {
                 Id = Guid.NewGuid(),
                 MinAge = 18,
