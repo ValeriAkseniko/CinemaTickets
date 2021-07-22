@@ -6,13 +6,13 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IAgeRestrictionsCRUDService
     {
-        bool Create(AgeRestrictions ageRestrictions);
+        bool Create(AgeRestriction ageRestrictions);
 
-        AgeRestrictions Get(Guid id);
+        AgeRestriction Get(Guid id);
 
-        List<AgeRestrictions> List();
+        List<AgeRestriction> List();
 
-        bool Update(AgeRestrictions ageRestrictions, Guid id);
+        bool Update(AgeRestriction ageRestrictions, Guid id);
 
         bool Delete(Guid id);
     }

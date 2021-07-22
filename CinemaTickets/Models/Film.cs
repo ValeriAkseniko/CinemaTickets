@@ -12,13 +12,13 @@ namespace CinemaTickets.Models
         public string Title { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
-        public AgeRestrictions AgeRestrictions { get; set; }
+        public AgeRestriction AgeRestrictions { get; set; }
         public Genre Genre { get; set; }
         public Film()
         {
 
         }
-        public Film(string title,int duration,string description,AgeRestrictions ageRestrictions,Genre genre,Guid? id = null)
+        public Film(string title,int duration,string description,AgeRestriction ageRestrictions,Genre genre,Guid? id = null)
         {
             if (id == null)
             {
