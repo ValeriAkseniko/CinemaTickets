@@ -11,13 +11,7 @@ namespace CinemaTickets
     {
         static void Main(string[] args)
         {
-            AgeRestriction age = new AgeRestriction
-            {
-                Id = Guid.NewGuid(),
-                MinAge = 18,
-                Title = "18+",
-                Description = "Кровь,кишки,матюки и голые сиськи"
-            };
+            Console.WriteLine();
         }
     }
 }
