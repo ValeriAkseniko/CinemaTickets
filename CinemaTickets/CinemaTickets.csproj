@@ -66,6 +66,10 @@
     <Compile Include="Migrations\202107221736398_init.designer.cs">
       <DependentUpon>202107221736398_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107221902438_addTableGenreAndCashiers.cs" />
+    <Compile Include="Migrations\202107221902438_addTableGenreAndCashiers.designer.cs">
+      <DependentUpon>202107221902438_addTableGenreAndCashiers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgeRestriction.cs" />
     <Compile Include="Models\Cashier.cs" />
@@ -89,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107221736398_init.resx">
       <DependentUpon>202107221736398_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107221902438_addTableGenreAndCashiers.resx">
+      <DependentUpon>202107221902438_addTableGenreAndCashiers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
