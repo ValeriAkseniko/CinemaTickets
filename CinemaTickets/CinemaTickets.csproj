@@ -79,6 +79,7 @@
     <Compile Include="Models\TypeOfCalculation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AgeRestrictionCRUDServices.cs" />
     <Compile Include="TicketContext.cs" />
   </ItemGroup>
   <ItemGroup>
