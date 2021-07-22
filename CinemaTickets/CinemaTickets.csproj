@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\ICashierCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\IFilmCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\IGenreCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\IHallCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\IPlaceCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\IRowCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\IStatusCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\ITicketCRUDService.cs" />
     <Compile Include="Models\AgeRestrictions.cs" />
     <Compile Include="Models\Cashier.cs" />
     <Compile Include="Models\Film.cs" />
