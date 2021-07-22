@@ -15,5 +15,7 @@ namespace CinemaTickets
         { }
 
         public DbSet<AgeRestriction> AgeRestrictions { get; set; }
+        public DbSet<Cashier> Cashiers { get; set; }
+        public DbSet<Genre> Genres { get; set; }
     }
 }
