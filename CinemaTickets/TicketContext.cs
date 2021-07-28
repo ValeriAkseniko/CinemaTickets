@@ -18,5 +18,8 @@ namespace CinemaTickets
         public DbSet<Cashier> Cashiers { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Status> Statuses { get; set; }
+        public DbSet<Hall> Halls { get; set; }
+        public DbSet<Row> Rows { get; set; }
+        public DbSet<Place> Places { get; set; }
     }
 }
