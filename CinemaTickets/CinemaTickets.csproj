@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202107281749494_addTableStatuses.designer.cs">
       <DependentUpon>202107281749494_addTableStatuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107281818241_addTableHallsRowsPlaces.cs" />
+    <Compile Include="Migrations\202107281818241_addTableHallsRowsPlaces.designer.cs">
+      <DependentUpon>202107281818241_addTableHallsRowsPlaces.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgeRestriction.cs" />
     <Compile Include="Models\Cashier.cs" />
@@ -90,6 +94,7 @@
     <Compile Include="Services\AgeRestrictionCRUDService.cs" />
     <Compile Include="Services\CashierCRUDService.cs" />
     <Compile Include="Services\GenreCRUDService.cs" />
+    <Compile Include="Services\HallCRUDService.cs" />
     <Compile Include="Services\StatusCRUDService.cs" />
     <Compile Include="TicketContext.cs" />
   </ItemGroup>
@@ -106,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107281749494_addTableStatuses.resx">
       <DependentUpon>202107281749494_addTableStatuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107281818241_addTableHallsRowsPlaces.resx">
+      <DependentUpon>202107281818241_addTableHallsRowsPlaces.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
