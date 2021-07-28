@@ -70,6 +70,10 @@
     <Compile Include="Migrations\202107221902438_addTableGenreAndCashiers.designer.cs">
       <DependentUpon>202107221902438_addTableGenreAndCashiers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107281749494_addTableStatuses.cs" />
+    <Compile Include="Migrations\202107281749494_addTableStatuses.designer.cs">
+      <DependentUpon>202107281749494_addTableStatuses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgeRestriction.cs" />
     <Compile Include="Models\Cashier.cs" />
@@ -86,6 +90,7 @@
     <Compile Include="Services\AgeRestrictionCRUDService.cs" />
     <Compile Include="Services\CashierCRUDService.cs" />
     <Compile Include="Services\GenreCRUDService.cs" />
+    <Compile Include="Services\StatusCRUDService.cs" />
     <Compile Include="TicketContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107221902438_addTableGenreAndCashiers.resx">
       <DependentUpon>202107221902438_addTableGenreAndCashiers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107281749494_addTableStatuses.resx">
+      <DependentUpon>202107281749494_addTableStatuses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
