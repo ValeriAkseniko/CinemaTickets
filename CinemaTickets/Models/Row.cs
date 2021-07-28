@@ -11,6 +11,9 @@ namespace CinemaTickets.Models
         public Guid Id { get; set; }
         public int Number { get; set; }
         public List<Place> Places { get; set; }
+
+        public Guid HallId { get; set; }
+        public Hall Hall { get; set; }
         public Row()
         {
             this.Places = new List<Place>();
