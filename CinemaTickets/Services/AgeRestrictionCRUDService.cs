@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CinemaTickets.Services
 {
-    public class AgeRestrictionCRUDServices : IAgeRestrictionsCRUDService
+    public class AgeRestrictionCRUDService : IAgeRestrictionsCRUDService
     {
         public bool Create(AgeRestriction ageRestrictions)
         {
@@ -65,10 +65,17 @@ namespace CinemaTickets.Services
 
         public List<AgeRestriction> List()
         {
-            using (TicketContext db = new TicketContext())
+            try
             {
-                List<AgeRestriction> ageRestrictions = db.AgeRestrictions.ToList();
-                return ageRestrictions;
+                using (TicketContext db = new TicketContext())
+                {
+                    List<AgeRestriction> ageRestrictions = db.AgeRestrictions.ToList();
+                    return ageRestrictions;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 
