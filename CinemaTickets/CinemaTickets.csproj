@@ -84,6 +84,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AgeRestrictionCRUDService.cs" />
+    <Compile Include="Services\CashierCRUDService.cs" />
     <Compile Include="Services\GenreCRUDService.cs" />
     <Compile Include="TicketContext.cs" />
   </ItemGroup>
