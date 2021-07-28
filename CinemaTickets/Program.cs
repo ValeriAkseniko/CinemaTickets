@@ -13,7 +13,7 @@ namespace CinemaTickets
     {
         static void Main(string[] args)
         {
-            
+           
         }
     }
 }
