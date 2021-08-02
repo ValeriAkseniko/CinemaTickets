@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{E4249E70-E9A2-
 		Task-119-insert.sql = Task-119-insert.sql
 		Task-120-update.sql = Task-120-update.sql
 		Task-121-delete.sql = Task-121-delete.sql
+		Task-122-select.sql = Task-122-select.sql
 	EndProjectSection
 EndProject
 Global
