@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\Place\PlaceCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Place\PlaceUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Place\PlaceViewDTO.cs" />
     <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />
     <Compile Include="GlobalInterfaces\ICashierCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IFilmCRUDService.cs" />
