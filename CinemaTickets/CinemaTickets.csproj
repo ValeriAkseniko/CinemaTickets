@@ -95,6 +95,7 @@
     <Compile Include="Services\CashierCRUDService.cs" />
     <Compile Include="Services\GenreCRUDService.cs" />
     <Compile Include="Services\HallCRUDService.cs" />
+    <Compile Include="Services\PlaceCRUDService.cs" />
     <Compile Include="Services\RowCRUDService.cs" />
     <Compile Include="Services\StatusCRUDService.cs" />
     <Compile Include="TicketContext.cs" />
