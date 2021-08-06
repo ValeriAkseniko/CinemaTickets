@@ -10,21 +10,5 @@ namespace CinemaTickets.Models
     {
         public Guid Id { get; set; }
         public string FullName { get; set; }
-        public Cashier()
-        {
-
-        }
-        public Cashier(string fullName,Guid? id =null)
-        {
-            if (id == null)
-            {
-                this.Id = Guid.NewGuid();
-            }
-            else
-            {
-                this.Id = id.Value;
-            }
-            this.FullName = fullName;
-        }
     }
 }
