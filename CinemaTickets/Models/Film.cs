@@ -12,13 +12,17 @@ namespace CinemaTickets.Models
         public string Title { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
-        public AgeRestriction AgeRestrictions { get; set; }
+
+        public Guid AgeRestrictionId { get; set; }
+        public AgeRestriction AgeRestriction { get; set; }
+
+        public Guid GenreId { get; set; }
         public Genre Genre { get; set; }
         public Film()
         {
 
         }
-        public Film(string title,int duration,string description,AgeRestriction ageRestrictions,Genre genre,Guid? id = null)
+        public Film(string title,int duration,string description,AgeRestriction ageRestriction,Genre genre,Guid? id = null)
         {
             if (id == null)
             {
@@ -31,7 +35,7 @@ namespace CinemaTickets.Models
             this.Title = title;
             this.Duration = duration;
             this.Description = description;
-            this.AgeRestrictions = ageRestrictions;
+            this.AgeRestriction = ageRestriction;
             this.Genre = genre;
         }
     }

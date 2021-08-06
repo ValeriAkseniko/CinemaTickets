@@ -21,5 +21,6 @@ namespace CinemaTickets
         public DbSet<Hall> Halls { get; set; }
         public DbSet<Row> Rows { get; set; }
         public DbSet<Place> Places { get; set; }
+        public DbSet<Film> Films { get; set; }
     }
 }
