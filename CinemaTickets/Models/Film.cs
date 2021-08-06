@@ -17,26 +17,6 @@ namespace CinemaTickets.Models
         public AgeRestriction AgeRestriction { get; set; }
 
         public Guid GenreId { get; set; }
-        public Genre Genre { get; set; }
-        public Film()
-        {
-
-        }
-        public Film(string title,int duration,string description,AgeRestriction ageRestriction,Genre genre,Guid? id = null)
-        {
-            if (id == null)
-            {
-                this.Id = Guid.NewGuid();
-            }
-            else
-            {
-                this.Id = id.Value;
-            }
-            this.Title = title;
-            this.Duration = duration;
-            this.Description = description;
-            this.AgeRestriction = ageRestriction;
-            this.Genre = genre;
-        }
+        public Genre Genre { get; set; }        
     }
 }

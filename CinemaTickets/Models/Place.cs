@@ -14,22 +14,5 @@ namespace CinemaTickets.Models
 
         public Guid RowId { get; set; }
         public Row Row { get; set; }
-        public Place()
-        {
-
-        }
-        public Place(int number,int capacity,Guid? id=null)
-        {
-            if (id == null)
-            {
-                this.Id = Guid.NewGuid();
-            }
-            else
-            {
-                this.Id = id.Value;
-            }
-            this.Number = number;
-            this.Capacity = capacity;
-        }
     }
 }
