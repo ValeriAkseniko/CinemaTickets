@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\Place\PlaceCreateDTO.cs" />
     <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />
     <Compile Include="GlobalInterfaces\ICashierCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IFilmCRUDService.cs" />
@@ -141,6 +142,7 @@
       <DependentUpon>202108061559135_addTableTickets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
