@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.AgeRestriction;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IAgeRestrictionsCRUDService
     {
-        bool Create(AgeRestriction ageRestrictions);
+        bool Create(AgeRestrictionCreateDTO ageRestriction);
 
         AgeRestriction Get(Guid id);
 
