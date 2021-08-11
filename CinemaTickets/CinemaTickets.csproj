@@ -53,6 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Cashier\CashierCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Film\FilmCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Genre\GenreCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Hall\HallCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Place\PlaceCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Rows\RowCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Status\StatusCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Ticket\TicketCreateDTO.cs" />
     <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />
     <Compile Include="GlobalInterfaces\ICashierCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IFilmCRUDService.cs" />
@@ -141,6 +150,7 @@
       <DependentUpon>202108061559135_addTableTickets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.Ticket;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface ITicketCRUDService
     {
-        bool Create(Ticket ticket);
+        bool Create(TicketCreateDTO ticket);
 
         Ticket Get(Guid id);
 

@@ -6,18 +6,30 @@ using System.Linq;
 using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using CinemaTickets.DataTransferObjects.Ticket;
 
 namespace CinemaTickets.Services
 {
     public class TicketCRUDService : ITicketCRUDService
     {
-        public bool Create(Ticket ticket)
+        public bool Create(TicketCreateDTO ticket)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Tickets.Add(ticket);
+                    Ticket entity = new Ticket
+                    {
+                        Id = Guid.NewGuid(),
+                        CashierId = ticket.CashierId,
+                        DateOfSale = ticket.DateOfSale,
+                        FilmId = ticket.FilmId,
+                        PlaceId = ticket.PlaceId,
+                        Price = ticket.Price,
+                        Start = ticket.Start,
+                        StatusId = ticket.StatusId
+                    };
+                    db.Tickets.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

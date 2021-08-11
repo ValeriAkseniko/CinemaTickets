@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.Cashier;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface ICashierCRUDService
     {
-        bool Create(Cashier cashier);
+        bool Create(CashierCreateDTO cashier);
 
         Cashier Get(Guid id);
 

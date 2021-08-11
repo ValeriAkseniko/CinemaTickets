@@ -1,4 +1,5 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Cashier;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,18 @@ namespace CinemaTickets.Services
 {
     public class CashierCRUDService : ICashierCRUDService
     {
-        public bool Create(Cashier cashier)
+        public bool Create(CashierCreateDTO cashier)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Cashiers.Add(cashier);
+                    Cashier entity = new Cashier
+                    {
+                        Id = Guid.NewGuid(),
+                        FullName = cashier.FullName
+                    };
+                    db.Cashiers.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

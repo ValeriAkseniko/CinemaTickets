@@ -6,18 +6,26 @@ using System.Linq;
 using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using CinemaTickets.DataTransferObjects.Place;
 
 namespace CinemaTickets.Services
 {
     public class PlaceCRUDService : IPlaceCRUDService
     {
-        public bool Create(Place place)
+        public bool Create(PlaceCreateDTO place)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Places.Add(place);
+                    Place entity = new Place
+                    {
+                        Id = Guid.NewGuid(),
+                        Capacity = place.Capacity,
+                        Number = place.Number,
+                        RowId = place.RowId
+                    };
+                    db.Places.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

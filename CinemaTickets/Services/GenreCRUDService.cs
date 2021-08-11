@@ -1,4 +1,5 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Genre;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,20 @@ namespace CinemaTickets.Services
 {
     public class GenreCRUDService : IGenreCRUDService
     {
-        public bool Create(Genre genre)
+        public bool Create(GenreCreateDTO genre)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Genres.Add(genre);
+                    Genre entity = new Genre
+                    {
+                        Id = Guid.NewGuid(),
+                        Title = genre.Title,
+                        Description = genre.Description
+
+                    };
+                    db.Genres.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

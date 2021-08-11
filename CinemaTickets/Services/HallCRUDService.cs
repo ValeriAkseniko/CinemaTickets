@@ -1,4 +1,5 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Hall;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,18 @@ namespace CinemaTickets.Services
 {
     public class HallCRUDService : IHallCRUDService
     {
-        public bool Create(Hall hall)
+        public bool Create(HallCreateDTO hall)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Halls.Add(hall);
+                    Hall entity = new Hall
+                    {
+                        Id = hall.Id,
+                        Title = hall.Title
+                    };
+                    db.Halls.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

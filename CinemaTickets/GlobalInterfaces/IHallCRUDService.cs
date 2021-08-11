@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.Hall;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IHallCRUDService
     {
-        bool Create(Hall hall);
+        bool Create(HallCreateDTO hall);
 
         Hall Get(Guid id);
 

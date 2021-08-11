@@ -6,18 +6,26 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CinemaTickets.DataTransferObjects.AgeRestriction;
 
 namespace CinemaTickets.Services
 {
     public class AgeRestrictionCRUDService : IAgeRestrictionsCRUDService
     {
-        public bool Create(AgeRestriction ageRestrictions)
+        public bool Create(AgeRestrictionCreateDTO ageRestriction)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.AgeRestrictions.Add(ageRestrictions);
+                    AgeRestriction entity = new AgeRestriction
+                    {
+                        Id = Guid.NewGuid(),
+                        Title = ageRestriction.Title,
+                        Description = ageRestriction.Description,
+                        MinAge = ageRestriction.MinAge
+                    };
+                    db.AgeRestrictions.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

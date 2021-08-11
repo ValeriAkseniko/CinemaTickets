@@ -1,4 +1,5 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Status;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,18 @@ namespace CinemaTickets.Services
 {
     public class StatusCRUDService : IStatusCRUDService
     {
-        public bool Create(Status status)
+        public bool Create(StatusCreateDTO status)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Statuses.Add(status);
+                    Status entity = new Status
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = status.Name
+                    };
+                    db.Statuses.Add(entity);
                     db.SaveChanges();
                 }
                 return true;

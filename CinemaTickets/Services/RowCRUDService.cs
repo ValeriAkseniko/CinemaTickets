@@ -1,4 +1,5 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Rows;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,19 @@ namespace CinemaTickets.Services
 {
     public class RowCRUDService : IRowCRUDService
     {
-        public bool Create(Row row)
+        public bool Create(RowCreateDTO row)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    db.Rows.Add(row);
+                    Row entity = new Row
+                    {
+                        Id = Guid.NewGuid(),
+                        Number = row.Number,
+                        HallId = row.HallId
+                    };
+                    db.Rows.Add(entity);
                     db.SaveChanges();
                 }
                 return true;
