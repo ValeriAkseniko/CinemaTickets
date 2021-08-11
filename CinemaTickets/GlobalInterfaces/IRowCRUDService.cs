@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.Rows;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IRowCRUDService
     {
-        bool Create(Row row);
+        bool Create(RowCreateDTO row);
 
         Row Get(Guid id);
 

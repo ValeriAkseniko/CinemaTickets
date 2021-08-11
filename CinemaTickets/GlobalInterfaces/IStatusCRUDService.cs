@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CinemaTickets.DataTransferObjects.Status;
 
 namespace CinemaTickets.GlobalInterfaces
 {
     public interface IStatusCRUDService
     {
-        bool Create(Status status);
+        bool Create(StatusCreateDTO status);
 
         Status Get(Guid id);
 

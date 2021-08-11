@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.Film;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IFilmCRUDService
     {
-        bool Create(Film film);
+        bool Create(FilmCreateDTO film);
 
         Film Get(Guid id);
 
