@@ -1,4 +1,5 @@
-﻿using CinemaTickets.Models;
+﻿using CinemaTickets.DataTransferObjects.Genre;
+using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IGenreCRUDService
     {
-        bool Create(Genre genre);
+        bool Create(GenreCreateDTO genreCreateDTO);
 
         Genre Get(Guid id);
 
