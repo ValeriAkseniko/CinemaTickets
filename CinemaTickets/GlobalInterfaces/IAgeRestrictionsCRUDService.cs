@@ -13,7 +13,7 @@ namespace CinemaTickets.GlobalInterfaces
 
         List<AgeRestriction> List();
 
-        bool Update(AgeRestriction ageRestrictions, Guid id);
+        bool Update(AgeRestrictionUpdateDTO ageRestrictions, Guid id);
 
         bool Delete(Guid id);
     }

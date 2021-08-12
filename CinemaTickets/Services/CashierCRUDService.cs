@@ -85,14 +85,18 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Cashier cashier, Guid id)
+        public bool Update(CashierUpdateDTO cashier, Guid id)
         {
             try
             {
                 Cashier entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    entityFromDb.FullName = cashier.FullName;
+                    Cashier entity = new Cashier
+                    {
+                        FullName = cashier.FullName
+                    };
+                    entityFromDb.FullName = entity.FullName;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

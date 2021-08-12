@@ -85,14 +85,18 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Status status, Guid id)
+        public bool Update(StatusUpdateDTO status, Guid id)
         {
             try
             {
                 Status entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    entityFromDb.Name = status.Name;
+                    Status entity = new Status
+                    {
+                        Name = status.Name
+                    };
+                    entityFromDb.Name = entity.Name;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

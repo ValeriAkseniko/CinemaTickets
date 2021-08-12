@@ -93,16 +93,22 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Place place, Guid id)
+        public bool Update(PlaceUpdateDTO place, Guid id)
         {
             try
             {
                 Place entityFromDB = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    entityFromDB.Capacity = place.Capacity;
-                    entityFromDB.Number = place.Number;
-                    entityFromDB.RowId = place.RowId;
+                    Place entity = new Place
+                    {
+                        Capacity = place.Capacity,
+                        Number = place.Number,
+                        RowId = place.RowId
+                    };
+                    entityFromDB.Capacity = entity.Capacity;
+                    entityFromDB.Number = entity.Number;
+                    entityFromDB.RowId = entity.RowId;
                     entityFromDB.Row = null;
                     db.Entry(entityFromDB).State = EntityState.Modified;
                     db.SaveChanges();

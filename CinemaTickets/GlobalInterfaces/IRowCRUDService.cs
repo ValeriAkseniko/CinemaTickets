@@ -16,7 +16,7 @@ namespace CinemaTickets.GlobalInterfaces
 
         List<Row> List();
 
-        bool Update(Row row, Guid id);
+        bool Update(RowUpdateDTO row, Guid id);
 
         bool Delete(Guid id);
     }

@@ -16,7 +16,7 @@ namespace CinemaTickets.GlobalInterfaces
 
         List<Cashier> List();
 
-        bool Update(Cashier cashier, Guid id);
+        bool Update(CashierUpdateDTO cashier, Guid id);
 
         bool Delete(Guid id);
 

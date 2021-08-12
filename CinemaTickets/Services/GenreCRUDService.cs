@@ -89,15 +89,20 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Genre genre, Guid id)
+        public bool Update(GenreUpdateDTO genre, Guid id)
         {
             try
             {
                 Genre entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    entityFromDb.Description = genre.Description;
-                    entityFromDb.Title = genre.Title;
+                    Genre entity = new Genre
+                    {
+                        Title = genre.Title,
+                        Description = genre.Description
+                    };
+                    entityFromDb.Description = entity.Description;
+                    entityFromDb.Title = entity.Title;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                     return true;

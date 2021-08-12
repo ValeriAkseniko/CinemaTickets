@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CinemaTickets.DataTransferObjects.Place
 {
-    public class PlaceCreateDTO
+    public class PlaceUpdateDTO
     {
-        public Guid Id { get; set; }
         public int Number { get; set; }
         public int Capacity { get; set; }
         public Guid RowId { get; set; }

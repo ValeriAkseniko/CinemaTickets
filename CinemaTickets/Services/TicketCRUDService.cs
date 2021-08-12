@@ -99,25 +99,34 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Ticket ticket, Guid id)
+        public bool Update(TicketUpdateDTO ticket, Guid id)
         {
             try
             {
                 Ticket entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    entityFromDb.CashierId = ticket.CashierId;
+                    Ticket entity = new Ticket
+                    {
+                        CashierId = ticket.CashierId,
+                        DateOfSale = ticket.DateOfSale,
+                        FilmId = ticket.FilmId,
+                        PlaceId = ticket.PlaceId,
+                        Price = ticket.Price,
+                        Start = ticket.Start,
+                        StatusId = ticket.StatusId
+                    };
+                    entityFromDb.CashierId = entity.CashierId;
                     entityFromDb.Cashier = null;
-                    entityFromDb.DateOfSale = ticket.DateOfSale;
-                    entityFromDb.FilmId = ticket.FilmId;
+                    entityFromDb.DateOfSale = entity.DateOfSale;
+                    entityFromDb.FilmId = entity.FilmId;
                     entityFromDb.Film = null;
-                    entityFromDb.PlaceId = ticket.PlaceId;
+                    entityFromDb.PlaceId = entity.PlaceId;
                     entityFromDb.Place = null;
-                    entityFromDb.Price = ticket.Price;
-                    entityFromDb.Start = ticket.Start;
-                    entityFromDb.StatusId = ticket.StatusId;
+                    entityFromDb.Price = entity.Price;
+                    entityFromDb.Start = entity.Start;
+                    entityFromDb.StatusId = entity.StatusId;
                     entityFromDb.Status = null;
-                    entityFromDb.TypeOfCalculation = ticket.TypeOfCalculation;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

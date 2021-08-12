@@ -92,17 +92,27 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Film film, Guid id)
+        public bool Update(FilmUpdateDTO film, Guid id)
         {
             try
             {
                 Film entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    entityFromDb.AgeRestriction = film.AgeRestriction;
-                    entityFromDb.Description = film.Description;
+                    Film entity = new Film
+                    {
+                        AgeRestrictionId = film.AgeRestrictionId,
+                        Description = film.Description,
+                        Duration = film.Duration,
+                        GenreId = film.GenreId,
+                        Title = film.Title
+                    };
+                    entityFromDb.AgeRestrictionId = entity.AgeRestrictionId;
+                    entityFromDb.AgeRestriction = null;
+                    entityFromDb.GenreId = entity.GenreId;
+                    entityFromDb.Genre = null;
+                    entityFromDb.Description = entity.Description;
                     entityFromDb.Duration = film.Duration;
-                    entityFromDb.Genre = film.Genre;
                     entityFromDb.Title = film.Title;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
