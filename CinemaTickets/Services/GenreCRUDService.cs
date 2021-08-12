@@ -89,7 +89,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Genre genre, Guid id)
+        public bool Update(GenreUpdateDTO genre, Guid id)
         {
             try
             {

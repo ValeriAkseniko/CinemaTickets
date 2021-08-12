@@ -99,13 +99,13 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Ticket ticket, Guid id)
+        public bool Update(TicketUpdateDTO ticket, Guid id)
         {
             try
             {
                 Ticket entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
-                {
+                {                    
                     entityFromDb.CashierId = ticket.CashierId;
                     entityFromDb.Cashier = null;
                     entityFromDb.DateOfSale = ticket.DateOfSale;
@@ -117,7 +117,6 @@ namespace CinemaTickets.Services
                     entityFromDb.Start = ticket.Start;
                     entityFromDb.StatusId = ticket.StatusId;
                     entityFromDb.Status = null;
-                    entityFromDb.TypeOfCalculation = ticket.TypeOfCalculation;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

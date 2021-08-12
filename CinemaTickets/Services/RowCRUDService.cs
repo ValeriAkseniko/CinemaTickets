@@ -91,7 +91,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Row row, Guid id)
+        public bool Update(RowUpdateDTO row, Guid id)
         {
             try
             {
@@ -99,7 +99,6 @@ namespace CinemaTickets.Services
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.Number = row.Number;
-                    entityFromDb.Places = row.Places;
                     entityFromDb.HallId = row.HallId;
                     entityFromDb.Hall = null;
                     db.Entry(entityFromDb).State = EntityState.Modified;

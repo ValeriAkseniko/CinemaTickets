@@ -16,7 +16,7 @@ namespace CinemaTickets.GlobalInterfaces
 
         List<Genre> List();
 
-        bool Update(Genre genre, Guid id);
+        bool Update(GenreUpdateDTO genre, Guid id);
 
         bool Delete(Guid id);
     }

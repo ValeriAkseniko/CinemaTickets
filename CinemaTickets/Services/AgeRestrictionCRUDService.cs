@@ -87,14 +87,13 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(AgeRestriction ageRestrictions, Guid id)
+        public bool Update(AgeRestrictionUpdateDTO ageRestrictions, Guid id)
         {
             try
             {
                 AgeRestriction entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-
                     entityFromDb.Title = ageRestrictions.Title;
                     entityFromDb.MinAge = ageRestrictions.MinAge;
                     entityFromDb.Description = ageRestrictions.Description;

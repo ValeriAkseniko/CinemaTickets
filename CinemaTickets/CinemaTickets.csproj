@@ -54,14 +54,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Cashier\CashierUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Film\FilmUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Genre\GenreCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Genre\GenreUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Hall\HallCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Hall\HallUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Place\PlaceCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Place\PlaceUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Rows\RowCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Rows\RowUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Status\StatusCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Status\StatusUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Ticket\TicketCreateDTO.cs" />
+    <Compile Include="DataTransferObjects\Ticket\TicketUpdateDTO.cs" />
     <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />
     <Compile Include="GlobalInterfaces\ICashierCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IFilmCRUDService.cs" />

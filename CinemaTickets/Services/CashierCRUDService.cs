@@ -85,7 +85,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public bool Update(Cashier cashier, Guid id)
+        public bool Update(CashierUpdateDTO cashier, Guid id)
         {
             try
             {
