@@ -92,11 +92,7 @@ namespace CinemaTickets.Services
                 Cashier entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Cashier entity = new Cashier
-                    {
-                        FullName = cashier.FullName
-                    };
-                    entityFromDb.FullName = entity.FullName;
+                    entityFromDb.FullName = cashier.FullName;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

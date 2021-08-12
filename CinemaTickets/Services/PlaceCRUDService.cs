@@ -100,15 +100,9 @@ namespace CinemaTickets.Services
                 Place entityFromDB = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Place entity = new Place
-                    {
-                        Capacity = place.Capacity,
-                        Number = place.Number,
-                        RowId = place.RowId
-                    };
-                    entityFromDB.Capacity = entity.Capacity;
-                    entityFromDB.Number = entity.Number;
-                    entityFromDB.RowId = entity.RowId;
+                    entityFromDB.Capacity = place.Capacity;
+                    entityFromDB.Number = place.Number;
+                    entityFromDB.RowId = place.RowId;
                     entityFromDB.Row = null;
                     db.Entry(entityFromDB).State = EntityState.Modified;
                     db.SaveChanges();

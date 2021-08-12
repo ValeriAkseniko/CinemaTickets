@@ -96,13 +96,8 @@ namespace CinemaTickets.Services
                 Genre entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Genre entity = new Genre
-                    {
-                        Title = genre.Title,
-                        Description = genre.Description
-                    };
-                    entityFromDb.Description = entity.Description;
-                    entityFromDb.Title = entity.Title;
+                    entityFromDb.Description = genre.Description;
+                    entityFromDb.Title = genre.Title;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                     return true;

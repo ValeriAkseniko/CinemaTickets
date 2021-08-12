@@ -105,27 +105,17 @@ namespace CinemaTickets.Services
             {
                 Ticket entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
-                {
-                    Ticket entity = new Ticket
-                    {
-                        CashierId = ticket.CashierId,
-                        DateOfSale = ticket.DateOfSale,
-                        FilmId = ticket.FilmId,
-                        PlaceId = ticket.PlaceId,
-                        Price = ticket.Price,
-                        Start = ticket.Start,
-                        StatusId = ticket.StatusId
-                    };
-                    entityFromDb.CashierId = entity.CashierId;
+                {                    
+                    entityFromDb.CashierId = ticket.CashierId;
                     entityFromDb.Cashier = null;
-                    entityFromDb.DateOfSale = entity.DateOfSale;
-                    entityFromDb.FilmId = entity.FilmId;
+                    entityFromDb.DateOfSale = ticket.DateOfSale;
+                    entityFromDb.FilmId = ticket.FilmId;
                     entityFromDb.Film = null;
-                    entityFromDb.PlaceId = entity.PlaceId;
+                    entityFromDb.PlaceId = ticket.PlaceId;
                     entityFromDb.Place = null;
-                    entityFromDb.Price = entity.Price;
-                    entityFromDb.Start = entity.Start;
-                    entityFromDb.StatusId = entity.StatusId;
+                    entityFromDb.Price = ticket.Price;
+                    entityFromDb.Start = ticket.Start;
+                    entityFromDb.StatusId = ticket.StatusId;
                     entityFromDb.Status = null;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();

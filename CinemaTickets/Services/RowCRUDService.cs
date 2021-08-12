@@ -98,13 +98,8 @@ namespace CinemaTickets.Services
                 Row entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Row entity = new Row
-                    {
-                        Number = row.Number,
-                        HallId = row.HallId
-                    };
-                    entityFromDb.Number = entity.Number;
-                    entityFromDb.HallId = entity.HallId;
+                    entityFromDb.Number = row.Number;
+                    entityFromDb.HallId = row.HallId;
                     entityFromDb.Hall = null;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();

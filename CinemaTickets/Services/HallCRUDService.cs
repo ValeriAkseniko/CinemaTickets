@@ -93,11 +93,7 @@ namespace CinemaTickets.Services
                 Hall entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Hall entity = new Hall
-                    {
-                        Title = hall.Title
-                    };
-                    entityFromDb.Title = entity.Title;
+                    entityFromDb.Title = hall.Title;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

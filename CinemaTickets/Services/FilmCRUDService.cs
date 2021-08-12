@@ -99,19 +99,11 @@ namespace CinemaTickets.Services
                 Film entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Film entity = new Film
-                    {
-                        AgeRestrictionId = film.AgeRestrictionId,
-                        Description = film.Description,
-                        Duration = film.Duration,
-                        GenreId = film.GenreId,
-                        Title = film.Title
-                    };
-                    entityFromDb.AgeRestrictionId = entity.AgeRestrictionId;
+                    entityFromDb.AgeRestrictionId = film.AgeRestrictionId;
                     entityFromDb.AgeRestriction = null;
-                    entityFromDb.GenreId = entity.GenreId;
+                    entityFromDb.GenreId = film.GenreId;
                     entityFromDb.Genre = null;
-                    entityFromDb.Description = entity.Description;
+                    entityFromDb.Description = film.Description;
                     entityFromDb.Duration = film.Duration;
                     entityFromDb.Title = film.Title;
                     db.Entry(entityFromDb).State = EntityState.Modified;

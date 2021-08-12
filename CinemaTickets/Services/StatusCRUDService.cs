@@ -92,11 +92,7 @@ namespace CinemaTickets.Services
                 Status entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    Status entity = new Status
-                    {
-                        Name = status.Name
-                    };
-                    entityFromDb.Name = entity.Name;
+                    entityFromDb.Name = status.Name;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                 }

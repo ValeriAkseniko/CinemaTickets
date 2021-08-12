@@ -94,15 +94,9 @@ namespace CinemaTickets.Services
                 AgeRestriction entityFromDb = Get(id);
                 using (TicketContext db = new TicketContext())
                 {
-                    AgeRestriction entity = new AgeRestriction
-                    {
-                        Title = ageRestrictions.Title,
-                        MinAge = ageRestrictions.MinAge,
-                        Description = ageRestrictions.Description
-                    };
-                    entityFromDb.Title = entity.Title;
-                    entityFromDb.MinAge = entity.MinAge;
-                    entityFromDb.Description = entity.Description;
+                    entityFromDb.Title = ageRestrictions.Title;
+                    entityFromDb.MinAge = ageRestrictions.MinAge;
+                    entityFromDb.Description = ageRestrictions.Description;
                     db.Entry(entityFromDb).State = EntityState.Modified;
                     db.SaveChanges();
                     return true;
