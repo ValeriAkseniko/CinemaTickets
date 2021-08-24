@@ -59,6 +59,8 @@
     <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Cashier\CashierViewDTO.cs" />
+    <Compile Include="DataTransferObjects\Cashier\CashierViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Genre\GenreCreateDTO.cs" />

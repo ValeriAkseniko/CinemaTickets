@@ -12,9 +12,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(CashierCreateDTO cashier);
 
-        Cashier Get(Guid id);
+        Cashier GetEntity(Guid id);
 
-        List<Cashier> List();
+        List<CashierViewListDTO> List();
 
         bool Update(CashierUpdateDTO cashier, Guid id);
 

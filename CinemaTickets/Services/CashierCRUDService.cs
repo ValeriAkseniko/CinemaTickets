@@ -38,7 +38,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Cashier entity = Get(id);
+                Cashier entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -53,7 +53,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Cashier Get(Guid id)
+        public Cashier GetEntity(Guid id)
         {
             try
             {
@@ -69,14 +69,29 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Cashier> List()
+        public CashierViewDTO Get (Guid id)
+        {
+            Cashier entity = GetEntity(id);
+            CashierViewDTO cashier = new CashierViewDTO
+            {
+                Id = entity.Id,
+                FullName = entity.FullName
+            };
+            return cashier;
+        }
+
+        public List<CashierViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Cashier> cashiers = db.Cashiers.ToList();
-                    return cashiers;
+                    List<CashierViewListDTO> result = db.Cashiers.Select(x => new CashierViewListDTO
+                    {
+                        Id = x.Id,
+                        FullName = x.FullName
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -89,7 +104,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Cashier entityFromDb = Get(id);
+                Cashier entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.FullName = cashier.FullName;
