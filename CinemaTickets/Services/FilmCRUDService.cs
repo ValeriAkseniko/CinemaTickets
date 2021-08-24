@@ -42,7 +42,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Film entity = Get(id);
+                Film entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -57,7 +57,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Film Get(Guid id)
+        public Film GetEntity(Guid id)
         {
             try
             {
@@ -76,14 +76,19 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Film> List()
+        public List<FilmViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Film> films = db.Films.ToList();
-                    return films;
+                    List<FilmViewListDTO> result = db.Films.Select(x => new FilmViewListDTO
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Duration = x.Duration
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -96,7 +101,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Film entityFromDb = Get(id);
+                Film entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.AgeRestrictionId = film.AgeRestrictionId;
@@ -115,6 +120,22 @@ namespace CinemaTickets.Services
             {
                 return false;
             }
+        }
+        public FilmViewDTO Get(Guid id)
+        {
+            Film entity = GetEntity(id);
+            FilmViewDTO film = new FilmViewDTO
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                AgeRestrictionId = entity.AgeRestrictionId,
+                AgeRestrictionTitle = entity.AgeRestriction.Title,
+                Description = entity.Description,
+                Duration = entity.Duration,
+                GenreId = entity.GenreId,
+                GenreTitle = entity.Genre.Title
+            };
+            return film;
         }
     }
 }

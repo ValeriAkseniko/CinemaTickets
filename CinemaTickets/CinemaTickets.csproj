@@ -63,6 +63,8 @@
     <Compile Include="DataTransferObjects\Cashier\CashierViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Film\FilmViewDTO.cs" />
+    <Compile Include="DataTransferObjects\Film\FilmViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Genre\GenreCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Genre\GenreUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Hall\HallCreateDTO.cs" />
