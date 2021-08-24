@@ -13,7 +13,8 @@ namespace CinemaTickets
     {
         static void Main(string[] args)
         {
-
+            AgeRestrictionCRUDService ageRestriction = new AgeRestrictionCRUDService();
+            List<AgeRestriction> test = ageRestriction.List(); 
         }
     }
 }

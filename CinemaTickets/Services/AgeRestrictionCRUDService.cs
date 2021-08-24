@@ -40,7 +40,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                AgeRestriction entity = Get(id);
+                AgeRestriction entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -55,7 +55,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public AgeRestriction Get(Guid id)
+        private AgeRestriction GetEntity(Guid id)
         {
             try
             {
@@ -71,14 +71,19 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<AgeRestriction> List()
+        public List<AgeRestrictionViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<AgeRestriction> ageRestrictions = db.AgeRestrictions.ToList();
-                    return ageRestrictions;
+                    List<AgeRestrictionViewListDTO> result = db.AgeRestrictions.Select(x => new AgeRestrictionViewListDTO
+                    {                        
+                        Id = x.Id,
+                        Title = x.Title
+                    }).ToList();
+
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -91,7 +96,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                AgeRestriction entityFromDb = Get(id);
+                AgeRestriction entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.Title = ageRestrictions.Title;
@@ -107,5 +112,18 @@ namespace CinemaTickets.Services
                 return false;
             }
         }
+        public AgeRestrictionViewDTO Get(Guid id)
+        {
+            AgeRestriction entity = GetEntity(id);
+            AgeRestrictionViewDTO ageRestriction = new AgeRestrictionViewDTO
+            {
+                Id = entity.Id,
+                MinAge = entity.MinAge,
+                Description = entity.Description,
+                Title = entity.Title
+            };
+            return ageRestriction;
+        }
+
     }
 }

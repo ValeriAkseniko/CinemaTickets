@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionCreateDTO.cs" />
     <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionViewDTO.cs" />
+    <Compile Include="DataTransferObjects\AgeRestriction\AgeRestrictionViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmCreateDTO.cs" />

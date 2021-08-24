@@ -9,9 +9,7 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(AgeRestrictionCreateDTO ageRestriction);
 
-        AgeRestriction Get(Guid id);
-
-        List<AgeRestriction> List();
+        List<AgeRestrictionViewListDTO> List();
 
         bool Update(AgeRestrictionUpdateDTO ageRestrictions, Guid id);
 
