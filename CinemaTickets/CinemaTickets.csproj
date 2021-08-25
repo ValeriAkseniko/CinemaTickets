@@ -75,6 +75,8 @@
     <Compile Include="DataTransferObjects\Hall\HallViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Place\PlaceCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Place\PlaceUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Place\PlaceViewDTO.cs" />
+    <Compile Include="DataTransferObjects\Place\PlaceViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Rows\RowCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Rows\RowUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Status\StatusCreateDTO.cs" />

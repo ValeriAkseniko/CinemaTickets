@@ -73,6 +73,18 @@ namespace CinemaTickets.Services
             }
         }
 
+        public GenreViewDTO Get(Guid id)
+        {
+            Genre entity = GetEntity(id);
+            GenreViewDTO genre = new GenreViewDTO
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                Description = entity.Description
+            };
+            return genre;
+        }
+
         public List<GenreViewListDTO> List()
         {
             try

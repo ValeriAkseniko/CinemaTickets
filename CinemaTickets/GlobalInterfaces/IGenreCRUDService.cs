@@ -12,7 +12,7 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(GenreCreateDTO genreCreateDTO);
 
-        Genre GetEntity(Guid id);
+        GenreViewDTO Get(Guid id);
 
         List<GenreViewListDTO> List();
 
