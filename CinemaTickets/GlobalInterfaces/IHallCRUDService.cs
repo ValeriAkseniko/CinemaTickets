@@ -12,9 +12,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(HallCreateDTO hall);
 
-        Hall Get(Guid id);
+        List<HallViewListDTO> List();
 
-        List<Hall> List();
+        HallViewDTO Get(Guid id);
 
         bool Update(HallUpdateDTO hall, Guid id);
 

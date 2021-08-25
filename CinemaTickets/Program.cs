@@ -1,4 +1,6 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Hall;
+using CinemaTickets.DataTransferObjects.Rows;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using CinemaTickets.Services;
 using System;
@@ -13,8 +15,7 @@ namespace CinemaTickets
     {
         static void Main(string[] args)
         {
-            AgeRestrictionCRUDService ageRestriction = new AgeRestrictionCRUDService();
-            List<AgeRestriction> test = ageRestriction.List(); 
+
         }
     }
 }
