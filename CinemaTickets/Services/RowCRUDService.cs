@@ -37,7 +37,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Row entity = Get(id);
+                Row entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -54,7 +54,7 @@ namespace CinemaTickets.Services
 
         }
 
-        public Row Get(Guid id)
+        private Row GetEntity(Guid id)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace CinemaTickets.Services
                     Row entity = db.Rows
                         .Include(x => x.Hall)
                         .FirstOrDefault(x => x.Id == id);
-                   
+
                     return entity;
                 }
             }
@@ -73,16 +73,33 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Row> List()
+        public RowViewDTO Get(Guid id)
+        {
+            Row entity = GetEntity(id);
+            RowViewDTO row = new RowViewDTO
+            {
+                Id = entity.Id,
+                Number = entity.Number,
+                HallId = entity.HallId,
+                HallTitle = entity.Hall.Title,
+                PlacesId = entity.Places.Select(x => x.Id).ToList()
+            };
+            return row;
+        }
+
+        public List<RowViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Row> rows = db.Rows
-                        .Include(x=>x.Hall)
-                        .ToList();
-                    return rows;
+                    List<RowViewListDTO> result = db.Rows.Select(x => new RowViewListDTO
+                    {
+                        Id = x.Id,
+                        Number = x.Number,
+                        HallId = x.HallId
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -95,7 +112,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Row entityFromDb = Get(id);
+                Row entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.Number = row.Number;

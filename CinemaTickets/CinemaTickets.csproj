@@ -79,8 +79,12 @@
     <Compile Include="DataTransferObjects\Place\PlaceViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Rows\RowCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Rows\RowUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Rows\RowViewDTO.cs" />
+    <Compile Include="DataTransferObjects\Rows\RowViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Status\StatusCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Status\StatusUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Status\StatusViewDTO.cs" />
+    <Compile Include="DataTransferObjects\Status\StatusViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Ticket\TicketCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Ticket\TicketUpdateDTO.cs" />
     <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />

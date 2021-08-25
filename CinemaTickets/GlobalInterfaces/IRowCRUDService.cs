@@ -12,9 +12,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(RowCreateDTO row);
 
-        Row Get(Guid id);
+        RowViewDTO Get(Guid id);
 
-        List<Row> List();
+        List<RowViewListDTO> List();
 
         bool Update(RowUpdateDTO row, Guid id);
 

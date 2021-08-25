@@ -12,9 +12,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(StatusCreateDTO status);
 
-        Status Get(Guid id);
+        StatusViewDTO Get(Guid id);
 
-        List<Status> List();
+        List<StatusViewListDTO> List();
 
         bool Update(StatusUpdateDTO status, Guid id);
 
