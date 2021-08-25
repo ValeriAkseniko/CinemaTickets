@@ -87,6 +87,8 @@
     <Compile Include="DataTransferObjects\Status\StatusViewListDTO.cs" />
     <Compile Include="DataTransferObjects\Ticket\TicketCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Ticket\TicketUpdateDTO.cs" />
+    <Compile Include="DataTransferObjects\Ticket\TicketViewDTO.cs" />
+    <Compile Include="DataTransferObjects\Ticket\TicketViewListDTO.cs" />
     <Compile Include="GlobalInterfaces\IAgeRestrictionsCRUDService.cs" />
     <Compile Include="GlobalInterfaces\ICashierCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IFilmCRUDService.cs" />

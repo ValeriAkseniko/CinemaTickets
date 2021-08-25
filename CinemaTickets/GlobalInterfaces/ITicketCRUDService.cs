@@ -12,9 +12,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(TicketCreateDTO ticket);
 
-        Ticket Get(Guid id);
+        TicketViewDTO Get(Guid id);
 
-        List<Ticket> List();
+        List<TicketViewListDTO> List();
 
         bool Update(TicketUpdateDTO ticket, Guid id);
 
