@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.Services
 {
@@ -121,6 +119,7 @@ namespace CinemaTickets.Services
                 return false;
             }
         }
+
         public FilmViewDTO Get(Guid id)
         {
             Film entity = GetEntity(id);

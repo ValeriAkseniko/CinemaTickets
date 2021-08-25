@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.Services
 {
@@ -70,6 +68,7 @@ namespace CinemaTickets.Services
                 return null;
             }
         }
+
         public HallViewDTO Get(Guid id)
         {
             Hall entity = GetEntity(id);

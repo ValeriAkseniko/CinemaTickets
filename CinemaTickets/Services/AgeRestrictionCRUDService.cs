@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CinemaTickets.DataTransferObjects.AgeRestriction;
 
 namespace CinemaTickets.Services
@@ -112,6 +110,7 @@ namespace CinemaTickets.Services
                 return false;
             }
         }
+
         public AgeRestrictionViewDTO Get(Guid id)
         {
             AgeRestriction entity = GetEntity(id);
