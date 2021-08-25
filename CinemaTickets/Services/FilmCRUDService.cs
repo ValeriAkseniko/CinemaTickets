@@ -57,7 +57,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Film GetEntity(Guid id)
+        private Film GetEntity(Guid id)
         {
             try
             {

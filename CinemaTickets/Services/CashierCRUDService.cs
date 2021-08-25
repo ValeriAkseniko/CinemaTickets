@@ -53,7 +53,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Cashier GetEntity(Guid id)
+        private Cashier GetEntity(Guid id)
         {
             try
             {
