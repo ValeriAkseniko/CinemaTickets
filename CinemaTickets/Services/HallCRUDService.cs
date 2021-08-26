@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.Services
 {
@@ -38,7 +36,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Hall entity = Get(id);
+                Hall entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -53,14 +51,15 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Hall Get(Guid id)
+        private Hall GetEntity(Guid id)
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    Hall hall = db.Halls.FirstOrDefault(x => x.Id == id);
-                    db.SaveChanges();
+                    Hall hall = db.Halls
+                        .Include(x => x.Rows)
+                        .FirstOrDefault(x => x.Id == id);
                     return hall;
                 }
             }
@@ -70,14 +69,30 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Hall> List()
+        public HallViewDTO Get(Guid id)
+        {
+            Hall entity = GetEntity(id);
+            HallViewDTO hall = new HallViewDTO
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                RowsId = entity.Rows.Select(x => x.Id).ToList()
+            };
+            return hall;
+        }
+
+        public List<HallViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Hall> halls = db.Halls.ToList();
-                    return halls;
+                    List<HallViewListDTO> result = db.Halls.Select(x => new HallViewListDTO
+                    {
+                        Id = x.Id,
+                        Title = x.Title
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -90,7 +105,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Hall entityFromDb = Get(id);
+                Hall entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.Title = hall.Title;

@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.Services
 {
@@ -41,7 +39,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Genre entity = Get(id);
+                Genre entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -56,7 +54,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Genre Get(Guid id)
+        private Genre GetEntity(Guid id)
         {
             try
             {
@@ -73,14 +71,30 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Genre> List()
+        public GenreViewDTO Get(Guid id)
+        {
+            Genre entity = GetEntity(id);
+            GenreViewDTO genre = new GenreViewDTO
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                Description = entity.Description
+            };
+            return genre;
+        }
+
+        public List<GenreViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Genre> genres = db.Genres.ToList();
-                    return genres;
+                    List<GenreViewListDTO> result = db.Genres.Select(x => new GenreViewListDTO 
+                    {
+                        Id = x.Id,
+                        Title = x.Title 
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -93,7 +107,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Genre entityFromDb = Get(id);
+                Genre entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.Description = genre.Description;

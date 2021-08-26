@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
-using System.Text;
-using System.Threading.Tasks;
 using CinemaTickets.DataTransferObjects.Ticket;
 
 namespace CinemaTickets.Services
@@ -44,7 +42,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Ticket entity = Get(id);
+                Ticket entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -59,7 +57,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Ticket Get(Guid id)
+        private Ticket GetEntity(Guid id)
         {
             try
             {
@@ -67,7 +65,7 @@ namespace CinemaTickets.Services
                 {
                     Ticket entity = db.Tickets
                         .Include(x => x.Place)
-                        .Include(x =>x.Place.Row)
+                        .Include(x => x.Place.Row)
                         .Include(x => x.Status)
                         .Include(x => x.Cashier)
                         .Include(x => x.Film)
@@ -83,14 +81,49 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Ticket> List()
+        public TicketViewDTO Get(Guid id)
+        {
+            Ticket entity = GetEntity(id);
+            TicketViewDTO ticket = new TicketViewDTO
+            {
+                Id = entity.Id,
+                FilmId = entity.FilmId,
+                FilmTitle = entity.Film.Title,
+                PlaceId = entity.PlaceId,
+                PlaceNumber = entity.Place.Number,
+                RowId = entity.Place.RowId,
+                RowNumber = entity.Place.Row.Number,
+                HallId = entity.Place.Row.HallId,
+                HallTitle = entity.Place.Row.Hall.Title,
+                StatusId = entity.StatusId,
+                StatusTitle = entity.Status.Name,
+                CashierId = entity.CashierId,
+                CashierName = entity.Cashier.FullName,
+                TypeOfCalculation = entity.TypeOfCalculation,
+                DateOfSale = entity.DateOfSale,
+                Start = entity.Start,
+                Price = entity.Price
+            };
+            return ticket;
+        }
+
+        public List<TicketViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Ticket> tickets = db.Tickets.ToList();
-                    return tickets;
+                    List<TicketViewListDTO> result = db.Tickets.Select(x => new TicketViewListDTO
+                    {
+                        Id = x.Id,
+                        FilmTitle = x.Film.Title,
+                        HallTitle = x.Place.Row.Hall.Title,
+                        PlaceNumber = x.Place.Number,
+                        RowNumber = x.Place.Row.Number,
+                        Price = x.Price,
+                        Start = x.Start
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -103,7 +136,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Ticket entityFromDb = Get(id);
+                Ticket entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {                    
                     entityFromDb.CashierId = ticket.CashierId;

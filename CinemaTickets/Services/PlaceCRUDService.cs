@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
-using System.Text;
-using System.Threading.Tasks;
 using CinemaTickets.DataTransferObjects.Place;
 
 namespace CinemaTickets.Services
@@ -40,7 +38,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Place place = Get(id);
+                Place place = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(place).State = EntityState.Deleted;
@@ -55,7 +53,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Place Get(Guid id)
+        private Place GetEntity(Guid id)
         {
             try
             {
@@ -73,18 +71,37 @@ namespace CinemaTickets.Services
                 return null;
             }
         }
+        
+        public PlaceViewDTO Get(Guid id)
+        {
+            Place entity = GetEntity(id);
+            PlaceViewDTO place = new PlaceViewDTO
+            {
+                Id = entity.Id,
+                Capacity = entity.Capacity,
+                Number = entity.Number,
+                RowId = entity.RowId,
+                RowNumber = entity.Row.Number,
+                HallId = entity.Row.HallId,
+                HallTitle = entity.Row.Hall.Title
+            };
+            return place;
+        }
 
-        public List<Place> List()
+        public List<PlaceViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Place> places = db.Places
-                        .Include(x => x.Row)
-                        .Include(x => x.Row.Hall)
-                        .ToList();
-                    return places;
+                    List<PlaceViewListDTO> result = db.Places.Select(x => new PlaceViewListDTO
+                    {
+                        Id = x.Id,
+                        Capacity = x.Capacity,
+                        Number = x.Number,
+                        RowId = x.RowId
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -97,7 +114,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Place entityFromDB = Get(id);
+                Place entityFromDB = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDB.Capacity = place.Capacity;

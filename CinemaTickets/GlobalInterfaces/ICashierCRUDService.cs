@@ -1,10 +1,6 @@
 ﻿using CinemaTickets.DataTransferObjects.Cashier;
-using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.GlobalInterfaces
 {
@@ -12,9 +8,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(CashierCreateDTO cashier);
 
-        Cashier Get(Guid id);
+        CashierViewDTO Get(Guid id);
 
-        List<Cashier> List();
+        List<CashierViewListDTO> List();
 
         bool Update(CashierUpdateDTO cashier, Guid id);
 

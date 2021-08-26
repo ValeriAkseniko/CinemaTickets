@@ -1,10 +1,6 @@
 ﻿using CinemaTickets.DataTransferObjects.Hall;
-using CinemaTickets.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.GlobalInterfaces
 {
@@ -12,9 +8,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(HallCreateDTO hall);
 
-        Hall Get(Guid id);
+        List<HallViewListDTO> List();
 
-        List<Hall> List();
+        HallViewDTO Get(Guid id);
 
         bool Update(HallUpdateDTO hall, Guid id);
 

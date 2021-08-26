@@ -9,9 +9,9 @@ namespace CinemaTickets.GlobalInterfaces
     {
         bool Create(PlaceCreateDTO place); 
         
-        Place Get(Guid id); 
+        PlaceViewDTO Get(Guid id); 
         
-        List<Place> List(); 
+        List<PlaceViewListDTO> List(); 
         
         bool Update(PlaceUpdateDTO place, Guid id); 
         

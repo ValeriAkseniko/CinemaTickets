@@ -1,4 +1,6 @@
-﻿using CinemaTickets.GlobalInterfaces;
+﻿using CinemaTickets.DataTransferObjects.Hall;
+using CinemaTickets.DataTransferObjects.Rows;
+using CinemaTickets.GlobalInterfaces;
 using CinemaTickets.Models;
 using CinemaTickets.Services;
 using System;

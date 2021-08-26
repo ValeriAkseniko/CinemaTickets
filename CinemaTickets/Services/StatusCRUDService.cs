@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTickets.Services
 {
@@ -38,7 +36,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Status entity = Get(id);
+                Status entity = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     db.Entry(entity).State = EntityState.Deleted;
@@ -53,7 +51,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public Status Get(Guid id)
+        private Status GetEntity(Guid id)
         {
             try
             {
@@ -69,14 +67,29 @@ namespace CinemaTickets.Services
             }
         }
 
-        public List<Status> List()
+        public StatusViewDTO Get(Guid id)
+        {
+            Status entity = GetEntity(id);
+            StatusViewDTO status = new StatusViewDTO
+            {
+                Id = entity.Id,
+                Name = entity.Name
+            };
+            return status;
+        }
+
+        public List<StatusViewListDTO> List()
         {
             try
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<Status> statuses = db.Statuses.ToList();
-                    return statuses;
+                    List<StatusViewListDTO> result = db.Statuses.Select(x => new StatusViewListDTO
+                    {
+                        Id = x.Id,
+                        Name = x.Name
+                    }).ToList();
+                    return result;
                 }
             }
             catch (Exception ex)
@@ -89,7 +102,7 @@ namespace CinemaTickets.Services
         {
             try
             {
-                Status entityFromDb = Get(id);
+                Status entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
                 {
                     entityFromDb.Name = status.Name;
