@@ -10,7 +10,7 @@ namespace CinemaTickets.DataTransferObjects.Rows
     {
         public Guid Id { get; set; }
         public int Number { get; set; }
-        public List<Guid> PlacesId { get; set; }
+        public List<Guid> PlaceId { get; set; }
         public Guid HallId { get; set; }
         public string HallTitle { get; set; }
     }

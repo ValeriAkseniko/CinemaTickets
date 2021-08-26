@@ -14,5 +14,7 @@ namespace CinemaTickets.GlobalInterfaces
         bool Update(AgeRestrictionUpdateDTO ageRestrictions, Guid id);
 
         bool Delete(Guid id);
+
+        AgeRestrictionViewDTO Get(Guid id);
     }
 }
