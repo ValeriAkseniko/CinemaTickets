@@ -96,6 +96,7 @@
     <Compile Include="GlobalInterfaces\IHallCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IPlaceCRUDService.cs" />
     <Compile Include="GlobalInterfaces\IRowCRUDService.cs" />
+    <Compile Include="GlobalInterfaces\ISeansService.cs" />
     <Compile Include="GlobalInterfaces\IStatusCRUDService.cs" />
     <Compile Include="GlobalInterfaces\ITicketCRUDService.cs" />
     <Compile Include="Migrations\202107221736398_init.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Services\HallCRUDService.cs" />
     <Compile Include="Services\PlaceCRUDService.cs" />
     <Compile Include="Services\RowCRUDService.cs" />
+    <Compile Include="Services\SeansSrevice.cs" />
     <Compile Include="Services\StatusCRUDService.cs" />
     <Compile Include="Services\TicketCRUDService.cs" />
     <Compile Include="TicketContext.cs" />

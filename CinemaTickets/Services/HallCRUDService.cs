@@ -76,7 +76,7 @@ namespace CinemaTickets.Services
             {
                 Id = entity.Id,
                 Title = entity.Title,
-                RowsId = entity.Rows.Select(x => x.Id).ToList()
+                RowIds = entity.Rows.Select(x => x.Id).ToList()
             };
             return hall;
         }
