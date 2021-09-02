@@ -8,7 +8,6 @@ namespace CinemaTickets.DataTransferObjects.Rows
 {
     public class RowCreateDTO
     {
-        public Guid Id { get; set; }
         public int Number { get; set; }
         public Guid HallId { get; set; }
     }
