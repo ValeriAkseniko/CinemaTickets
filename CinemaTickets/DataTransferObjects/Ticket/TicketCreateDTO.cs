@@ -8,7 +8,6 @@ namespace CinemaTickets.DataTransferObjects.Ticket
 {
     public class TicketCreateDTO
     {
-        public Guid Id { get; set; }
         public Guid FilmId { get; set; }
         public Guid PlaceId { get; set; }
         public Guid StatusId { get; set; }
