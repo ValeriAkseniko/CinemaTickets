@@ -82,7 +82,7 @@ namespace CinemaTickets.Services
                 Number = entity.Number,
                 HallId = entity.HallId,
                 HallTitle = entity.Hall.Title,
-                PlacesId = entity.Places.Select(x => x.Id).ToList()
+                PlacesIds = entity.Places.Select(x => x.Id).ToList()
             };
             return row;
         }

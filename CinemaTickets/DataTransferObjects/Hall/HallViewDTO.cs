@@ -13,6 +13,6 @@ namespace CinemaTickets.DataTransferObjects.Hall
 
         public string Title { get; set; }
 
-        public List<Guid> RowIds { get; set; }
+        public List<Guid> RowsIds { get; set; }
     }
 }

@@ -19,11 +19,11 @@ namespace CinemaTickets.Models
         public Guid StatusId { get; set; }
         public Status Status { get; set; }
 
-        public Guid CashierId { get; set; }
+        public Guid? CashierId { get; set; }
         public Cashier Cashier { get; set; }
 
-        public TypeOfCalculation TypeOfCalculation { get; set; }
-        public DateTime DateOfSale { get; set; }
+        public TypeOfCalculation? TypeOfCalculation { get; set; }
+        public DateTime? DateOfSale { get; set; }
         public DateTime Start { get; set; }
         public decimal Price { get; set; }        
     }
