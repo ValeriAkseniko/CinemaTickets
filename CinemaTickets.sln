@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{E4249E70-E9A2-
 		Task-166-order-by.sql = Task-166-order-by.sql
 		task-197-list-of-places-with-information.sql = task-197-list-of-places-with-information.sql
 		task-198-sql-query-capacity.sql = task-198-sql-query-capacity.sql
+		Task-199-list-halls.sql = Task-199-list-halls.sql
 	EndProjectSection
 EndProject
 Global
