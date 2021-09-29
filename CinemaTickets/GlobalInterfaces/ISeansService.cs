@@ -8,6 +8,6 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface ISeansService
     {
-        void CreateSeance(Guid filmId, Guid hallId, decimal price, DateTime start);
+        void CreateSeanse(Guid filmId, Guid hallId, decimal price, DateTime start);
     }
 }

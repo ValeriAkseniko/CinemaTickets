@@ -61,6 +61,7 @@
     <Compile Include="DataTransferObjects\Cashier\CashierUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierViewDTO.cs" />
     <Compile Include="DataTransferObjects\Cashier\CashierViewListDTO.cs" />
+    <Compile Include="DataTransferObjects\Constants.cs" />
     <Compile Include="DataTransferObjects\Film\FilmCreateDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmUpdateDTO.cs" />
     <Compile Include="DataTransferObjects\Film\FilmViewDTO.cs" />
@@ -151,7 +152,7 @@
     <Compile Include="Services\HallCRUDService.cs" />
     <Compile Include="Services\PlaceCRUDService.cs" />
     <Compile Include="Services\RowCRUDService.cs" />
-    <Compile Include="Services\SeansSrevice.cs" />
+    <Compile Include="Services\SeansService.cs" />
     <Compile Include="Services\StatusCRUDService.cs" />
     <Compile Include="Services\TicketCRUDService.cs" />
     <Compile Include="TicketContext.cs" />
