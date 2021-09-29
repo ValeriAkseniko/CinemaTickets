@@ -11,5 +11,6 @@ namespace CinemaTickets.DataTransferObjects.Rows
         public Guid Id { get; set; }
         public int Number { get; set; }
         public Guid HallId { get; set; }
+        public List<Guid> PlaceIds { get; set; }
     }
 }
