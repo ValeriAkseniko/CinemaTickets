@@ -18,7 +18,7 @@ namespace CinemaTickets.Services
                 {
                     Hall entity = new Hall
                     {
-                        Id = hall.Id,
+                        Id = Guid.NewGuid(),
                         Title = hall.Title
                     };
                     db.Halls.Add(entity);
@@ -76,7 +76,7 @@ namespace CinemaTickets.Services
             {
                 Id = entity.Id,
                 Title = entity.Title,
-                RowIds = entity.Rows.Select(x => x.Id).ToList()
+                RowsIds = entity.Rows.Select(x => x.Id).ToList()
             };
             return hall;
         }

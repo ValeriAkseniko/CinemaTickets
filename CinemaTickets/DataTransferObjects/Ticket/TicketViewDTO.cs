@@ -26,11 +26,11 @@ namespace CinemaTickets.DataTransferObjects.Ticket
         public Guid StatusId { get; set; }
         public string StatusTitle { get; set; }
 
-        public Guid CashierId { get; set; }
+        public Guid? CashierId { get; set; }
         public string CashierName { get; set; }
 
-        public TypeOfCalculation TypeOfCalculation { get; set; }
-        public DateTime DateOfSale { get; set; }
+        public TypeOfCalculation? TypeOfCalculation { get; set; }
+        public DateTime? DateOfSale { get; set; }
         public DateTime Start { get; set; }
         public decimal Price { get; set; }
     }

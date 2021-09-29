@@ -8,7 +8,6 @@ namespace CinemaTickets.DataTransferObjects.Hall
 {
     public class HallCreateDTO
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
     }
 }

@@ -127,6 +127,10 @@
     <Compile Include="Migrations\202108061559135_addTableTickets.designer.cs">
       <DependentUpon>202108061559135_addTableTickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109081933594_NullableParameters.cs" />
+    <Compile Include="Migrations\202109081933594_NullableParameters.designer.cs">
+      <DependentUpon>202109081933594_NullableParameters.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgeRestriction.cs" />
     <Compile Include="Models\Cashier.cs" />
@@ -177,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108061559135_addTableTickets.resx">
       <DependentUpon>202108061559135_addTableTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109081933594_NullableParameters.resx">
+      <DependentUpon>202109081933594_NullableParameters.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

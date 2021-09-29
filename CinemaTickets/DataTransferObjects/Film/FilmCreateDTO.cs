@@ -8,7 +8,6 @@ namespace CinemaTickets.DataTransferObjects.Film
 {
     public class FilmCreateDTO
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
