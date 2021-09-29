@@ -11,8 +11,8 @@ namespace CinemaTickets.DataTransferObjects.Ticket
         public Guid FilmId { get; set; }
         public Guid PlaceId { get; set; }
         public Guid StatusId { get; set; }
-        public Guid CashierId { get; set; }
-        public DateTime DateOfSale { get; set; }
+        public Guid? CashierId { get; set; }
+        public DateTime? DateOfSale { get; set; }
         public DateTime Start { get; set; }
         public decimal Price { get; set; }
     }
