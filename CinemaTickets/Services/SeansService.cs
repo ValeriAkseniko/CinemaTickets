@@ -22,11 +22,6 @@ namespace CinemaTickets.Services
             ticketCRUDService = new TicketCRUDService();
         }
 
-        public void CreateTicket(Guid filmId, Guid hallId, decimal price, DateTime start)
-        {
-            throw new NotImplementedException();
-        }
-
         public void CreateSeanse(Guid filmId, Guid hallId, decimal price, DateTime start)
         {         
             var film = filmCRUDService.Get(filmId);
