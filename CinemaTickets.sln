@@ -17,6 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{E4249E70-E9A2-
 		Task-199-list-halls.sql = Task-199-list-halls.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbCourseTest", "dbCourseTest", "{16DD5EA1-5359-412B-8503-BB2A280D3108}"
+	ProjectSection(SolutionItems) = preProject
+		SqlQuery.sql = SqlQuery.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
