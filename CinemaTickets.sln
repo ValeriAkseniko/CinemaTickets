@@ -22,6 +22,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbCourseTest", "dbCourseTes
 		SqlQuery.sql = SqlQuery.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "view", "view", "{A1197518-D38A-43AC-A243-4863D3E6FC05}"
+	ProjectSection(SolutionItems) = preProject
+		ListOfFilms.sql = ListOfFilms.sql
+		ListOfHalls.sql = ListOfHalls.sql
+		NotSoldTickets.sql = NotSoldTickets.sql
+		SoldTickets.sql = SoldTickets.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +43,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1197518-D38A-43AC-A243-4863D3E6FC05} = {E4249E70-E9A2-4F42-A28C-8A39CD35DADF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C7C3DE9-B456-4984-875A-9ABDEC40AF66}
