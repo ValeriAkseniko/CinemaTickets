@@ -15,5 +15,7 @@ namespace CinemaTickets.GlobalInterfaces
         bool Update(RowUpdateDTO row, Guid id);
 
         bool Delete(Guid id);
+
+        List<RowViewListDTO> ListPagination(int page, int pageSize);
     }
 }
