@@ -138,7 +138,7 @@ namespace CinemaTickets.Services
             {
                 Ticket entityFromDb = GetEntity(id);
                 using (TicketContext db = new TicketContext())
-                {                    
+                {
                     entityFromDb.CashierId = ticket.CashierId;
                     entityFromDb.Cashier = null;
                     entityFromDb.DateOfSale = ticket.DateOfSale;
@@ -158,6 +158,35 @@ namespace CinemaTickets.Services
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public List<TicketViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db =new TicketContext())
+                {
+                    List<TicketViewListDTO> result = db.Tickets
+                        .OrderBy(x => x.Start)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Select(x => new TicketViewListDTO
+                        {
+                        Id = x.Id,
+                        FilmTitle = x.Film.Title,
+                        HallTitle = x.Place.Row.Hall.Title,
+                        PlaceNumber = x.Place.Number,
+                        RowNumber = x.Place.Row.Number,
+                        Price = x.Price,
+                        Start = x.Start
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }
