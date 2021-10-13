@@ -100,7 +100,9 @@ namespace CinemaTickets.Services
                             Id = x.Id,
                             Number = x.Number,
                             HallId = x.HallId,
-                            PlaceIds = x.Places.Select(p => p.Id).ToList()
+                            PlaceIds = x.Places
+                                .Select(p => p.Id)
+                                .ToList()
                         }).ToList();
                     return result;
                 }
