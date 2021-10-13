@@ -136,5 +136,29 @@ namespace CinemaTickets.Services
             };
             return film;
         }
+
+        public List<FilmViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<FilmViewListDTO> result = db.Films
+                        .OrderBy(x => x.Title)
+                        .Skip(page * pageSize).Take(pageSize)
+                        .Select(x => new FilmViewListDTO
+                        {
+                            Id = x.Id,
+                            Title = x.Title,
+                            Duration = x.Duration
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
