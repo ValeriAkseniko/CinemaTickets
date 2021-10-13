@@ -89,10 +89,10 @@ namespace CinemaTickets.Services
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<GenreViewListDTO> result = db.Genres.Select(x => new GenreViewListDTO 
+                    List<GenreViewListDTO> result = db.Genres.Select(x => new GenreViewListDTO
                     {
                         Id = x.Id,
-                        Title = x.Title 
+                        Title = x.Title
                     }).ToList();
                     return result;
                 }
@@ -120,6 +120,29 @@ namespace CinemaTickets.Services
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public List<GenreViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<GenreViewListDTO> result = db.Genres
+                        .OrderBy(x => x.Title)
+                        .Skip(page * pageSize).Take(pageSize)
+                        .Select(x => new GenreViewListDTO
+                        {
+                        Id = x.Id,
+                        Title = x.Title
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

@@ -96,12 +96,14 @@ namespace CinemaTickets.Services
                     List<RowViewListDTO> result = db.Rows
                         .Include(x => x.Places)
                         .Select(x => new RowViewListDTO
-                    {
-                        Id = x.Id,
-                        Number = x.Number,
-                        HallId = x.HallId,
-                        PlaceIds = x.Places.Select(p => p.Id).ToList()
-                    }).ToList();
+                        {
+                            Id = x.Id,
+                            Number = x.Number,
+                            HallId = x.HallId,
+                            PlaceIds = x.Places
+                                .Select(p => p.Id)
+                                .ToList()
+                        }).ToList();
                     return result;
                 }
             }
@@ -129,6 +131,33 @@ namespace CinemaTickets.Services
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public List<RowViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<RowViewListDTO> result = db.Rows
+                        .OrderBy(x => x.Number)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Include(x => x.Places)
+                        .Select(x => new RowViewListDTO
+                        {
+                            Id = x.Id,
+                            Number = x.Number,
+                            HallId = x.HallId,
+                            PlaceIds = x.Places.Select(p => p.Id).ToList()
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

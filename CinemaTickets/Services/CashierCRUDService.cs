@@ -67,7 +67,7 @@ namespace CinemaTickets.Services
             }
         }
 
-        public CashierViewDTO Get (Guid id)
+        public CashierViewDTO Get(Guid id)
         {
             Cashier entity = GetEntity(id);
             CashierViewDTO cashier = new CashierViewDTO
@@ -84,11 +84,11 @@ namespace CinemaTickets.Services
             {
                 using (TicketContext db = new TicketContext())
                 {
-                    List<CashierViewListDTO> result = db.Cashiers.Select(x => new CashierViewListDTO
-                    {
-                        Id = x.Id,
-                        FullName = x.FullName
-                    }).ToList();
+                        List<CashierViewListDTO> result = db.Cashiers.Select(x => new CashierViewListDTO
+                        {
+                            Id = x.Id,
+                            FullName = x.FullName
+                        }).ToList();
                     return result;
                 }
             }
@@ -114,6 +114,30 @@ namespace CinemaTickets.Services
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public List<CashierViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<CashierViewListDTO> result = db.Cashiers
+                        .OrderBy(x => x.FullName)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Select(x => new CashierViewListDTO
+                        {
+                            Id = x.Id,
+                            FullName = x.FullName
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

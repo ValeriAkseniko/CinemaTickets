@@ -116,5 +116,29 @@ namespace CinemaTickets.Services
                 return false;
             }
         }
+
+        public List<StatusViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<StatusViewListDTO> result = db.Statuses
+                        .OrderBy(x => x.Name)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Select(x => new StatusViewListDTO
+                        {
+                            Id = x.Id,
+                            Name = x.Name
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

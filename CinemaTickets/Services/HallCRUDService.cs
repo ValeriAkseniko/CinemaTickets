@@ -119,5 +119,29 @@ namespace CinemaTickets.Services
                 return false;
             }
         }
+
+        public List<HallViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<HallViewListDTO> result = db.Halls
+                        .OrderBy(x => x.Title)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Select(x => new HallViewListDTO
+                        {
+                        Id = x.Id,
+                        Title = x.Title
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
