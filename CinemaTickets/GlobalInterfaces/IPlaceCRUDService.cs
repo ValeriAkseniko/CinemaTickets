@@ -7,15 +7,17 @@ namespace CinemaTickets.GlobalInterfaces
 {
     public interface IPlaceCRUDService
     {
-        bool Create(PlaceCreateDTO place); 
-        
-        PlaceViewDTO Get(Guid id); 
-        
-        List<PlaceViewListDTO> List(); 
-        
-        bool Update(PlaceUpdateDTO place, Guid id); 
-        
+        bool Create(PlaceCreateDTO place);
+
+        PlaceViewDTO Get(Guid id);
+
+        List<PlaceViewListDTO> List();
+
+        bool Update(PlaceUpdateDTO place, Guid id);
+
         bool Delete(Guid id);
+
+        List<PlaceViewListDTO> ListPagination(int page, int pageSize);
 
     }
 }

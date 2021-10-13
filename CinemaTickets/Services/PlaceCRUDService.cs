@@ -71,7 +71,7 @@ namespace CinemaTickets.Services
                 return null;
             }
         }
-        
+
         public PlaceViewDTO Get(Guid id)
         {
             Place entity = GetEntity(id);
@@ -129,6 +129,32 @@ namespace CinemaTickets.Services
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public List<PlaceViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<PlaceViewListDTO> result = db.Places
+                        .OrderBy(x => x.Number)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Select(x => new PlaceViewListDTO
+                        {
+                        Id = x.Id,
+                        Capacity = x.Capacity,
+                        Number = x.Number,
+                        RowId = x.RowId
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }
