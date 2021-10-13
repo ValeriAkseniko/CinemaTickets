@@ -126,7 +126,8 @@ namespace CinemaTickets.Services
                     List<CashierViewListDTO> result = db.Cashiers
                         .OrderBy(x => x.FullName)
                         .Skip(page * pageSize)
-                        .Take(pageSize).Select(x => new CashierViewListDTO
+                        .Take(pageSize)
+                        .Select(x => new CashierViewListDTO
                         {
                             Id = x.Id,
                             FullName = x.FullName

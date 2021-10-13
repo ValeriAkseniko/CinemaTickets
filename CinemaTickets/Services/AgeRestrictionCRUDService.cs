@@ -76,7 +76,7 @@ namespace CinemaTickets.Services
                 using (TicketContext db = new TicketContext())
                 {
                     List<AgeRestrictionViewListDTO> result = db.AgeRestrictions.Select(x => new AgeRestrictionViewListDTO
-                    {                        
+                    {
                         Id = x.Id,
                         Title = x.Title
                     }).ToList();
@@ -124,5 +124,28 @@ namespace CinemaTickets.Services
             return ageRestriction;
         }
 
+        public List<AgeRestrictionViewListDTO> ListPagination(int page, int pageSize)
+        {
+            try
+            {
+                using (TicketContext db = new TicketContext())
+                {
+                    List<AgeRestrictionViewListDTO> result = db.AgeRestrictions
+                        .OrderBy(x => x.Title)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .Select(x => new AgeRestrictionViewListDTO
+                        {
+                            Id = x.Id,
+                            Title = x.Title
+                        }).ToList();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

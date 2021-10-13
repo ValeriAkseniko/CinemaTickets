@@ -16,5 +16,7 @@ namespace CinemaTickets.GlobalInterfaces
         bool Delete(Guid id);
 
         AgeRestrictionViewDTO Get(Guid id);
+
+        List<AgeRestrictionViewListDTO> ListPagination(int page, int pageSize);
     }
 }
